@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+cron_repos_create: "{{ _cron_repos_create['all']
+  | union ( _cron_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+cron_repos_download: "{{ _cron_repos_download['all']
+  | union ( _cron_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+cron_templates_copy: "{{ _cron_templates_copy['all']
+  | union ( _cron_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+cron_services_enable: "{{ _cron_services_enable['all']
+  | union ( _cron_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+cron_selinux_enable: "{{ _cron_selinux_enable['all']
+  | union ( _cron_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+cron_packages_remove: "{{ _cron_packages_remove['all']
+  | union ( _cron_packages_remove[my_os]
+  | default([]) ) }}"
+cron_packages_repos: "{{ _cron_packages_repos['all']
+  | union ( _cron_packages_repos[my_os]
+  | default([]) ) }}"
+cron_packages_prereq: "{{ _cron_packages_prereq['all']
+  | union ( _cron_packages_prereq[my_os]
+  | default([]) ) }}"
+cron_packages_install: "{{ _cron_packages_install['all']
+  | union ( _cron_packages_install[my_os]
+  | default([]) ) }}"

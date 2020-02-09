@@ -1,0 +1,11 @@
+---
+# Configure cron
+
+- name: service is enabled and started
+  service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  become: true
+  loop: "{{ cron_services_enable }}"
+  when: cron_enable_service

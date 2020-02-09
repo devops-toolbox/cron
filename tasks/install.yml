@@ -1,0 +1,27 @@
+---
+# Install cron packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ cron_packages_remove }}"
+    state: absent
+  become: true
+  when: cron_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ cron_packages_repos }}"
+    state: "{{ cron_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ cron_packages_prereq }}"
+    state: "{{ cron_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ cron_packages_install }}"
+    state: "{{ cron_packages_state }}"
+  become: true
