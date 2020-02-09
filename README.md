@@ -8,10 +8,10 @@ cron: Cron
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.cron](https://galaxy.ansible.com/devops-toolbox.cron)
+[https://galaxy.ansible.com/devopstoolbox.cron](https://galaxy.ansible.com/devopstoolbox.cron)
 
 ```bash
-ansible-galaxy install devops-toolbox.cron
+ansible-galaxy install devopstoolbox.cron
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: cron is configured
       import_role:
-        name: devops-toolbox.cron
+        name: devopstoolbox.cron
       vars:
         cron_packages_state: present
         cron_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
